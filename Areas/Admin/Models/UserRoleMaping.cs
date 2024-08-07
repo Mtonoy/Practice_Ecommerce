@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OnlineShop.Areas.Admin.Models
+namespace OnlineShopApp.Areas.Admin.Models
 {
     public class UserRoleMaping
     {

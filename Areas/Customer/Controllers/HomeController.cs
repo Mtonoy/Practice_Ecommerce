@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using OnlineShop.Data;
-using OnlineShop.Models;
-using OnlineShop.Utility;
+using OnlineShopApp.Data;
+using OnlineShopApp.Models;
+using OnlineShopApp.Utility;
 using X.PagedList;
 
-namespace OnlineShop.Controllers
+namespace OnlineShopApp.Controllers
 {
     [Area("Customer")]
     

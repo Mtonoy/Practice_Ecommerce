@@ -7,7 +7,7 @@ using OnlineShopApp.Models;
 
 namespace OnlineShopApp.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -16,5 +16,6 @@ namespace OnlineShopApp.Data
         public DbSet<ProductTypes> ProductTypes { get; set; }
         public DbSet<SpecialTag> SpecialTags { get; set; }
         public DbSet<Products> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

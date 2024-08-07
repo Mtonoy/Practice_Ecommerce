@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using OnlineShop.Data;
-using OnlineShop.Models;
+using OnlineShopApp.Data;
+using OnlineShopApp.Models;
 
-namespace OnlineShop.Areas.Customer.Controllers
+namespace OnlineShopApp.Areas.Customer.Controllers
 {
     [Area("Customer")]
     public class UserController : Controller
@@ -22,7 +22,7 @@ namespace OnlineShop.Areas.Customer.Controllers
         public IActionResult Index()
         {
             var dd = _userManager.GetUserId(HttpContext.User);
-            return View(_db.ApplicationUsers.ToList());
+            return View(_db.Users.ToList());
         }
 
         public async Task<IActionResult>Create()
@@ -56,7 +56,7 @@ namespace OnlineShop.Areas.Customer.Controllers
 
         public async Task<IActionResult>Edit(string id)
         {
-            var user = _db.ApplicationUsers.FirstOrDefault(c => c.Id == id);
+            var user = _db.Users.FirstOrDefault(c => c.Id == id);
             if(user==null)
             {
                 return NotFound();
@@ -67,7 +67,7 @@ namespace OnlineShop.Areas.Customer.Controllers
         [HttpPost]
         public async Task<IActionResult>Edit(ApplicationUser user)
         {
-            var userInfo = _db.ApplicationUsers.FirstOrDefault(c => c.Id == user.Id);
+            var userInfo = _db.Users.FirstOrDefault(c => c.Id == user.Id);
             if(userInfo==null)
             {
                 return NotFound();
@@ -86,7 +86,7 @@ namespace OnlineShop.Areas.Customer.Controllers
 
         public async Task<IActionResult> Details(string id)
         {
-            var user = _db.ApplicationUsers.FirstOrDefault(c => c.Id == id);
+            var user = _db.Users.FirstOrDefault(c => c.Id == id);
             if (user == null)
             {
                 return NotFound();
@@ -100,7 +100,7 @@ namespace OnlineShop.Areas.Customer.Controllers
             {
                 return NotFound();
             }
-            var user = _db.ApplicationUsers.FirstOrDefault(c => c.Id == id);
+            var user = _db.Users.FirstOrDefault(c => c.Id == id);
             if(user==null)
             {
                 return NotFound();
@@ -111,7 +111,7 @@ namespace OnlineShop.Areas.Customer.Controllers
         [HttpPost]
         public async Task<IActionResult>Locout(ApplicationUser user)
         {
-            var userInfo = _db.ApplicationUsers.FirstOrDefault(c => c.Id == user.Id);
+            var userInfo = _db.Users.FirstOrDefault(c => c.Id == user.Id);
             if(userInfo==null)
             {
                 return NotFound();
@@ -129,7 +129,7 @@ namespace OnlineShop.Areas.Customer.Controllers
 
         public async Task<IActionResult>Active(string id)
         {
-            var user = _db.ApplicationUsers.FirstOrDefault(c => c.Id == id);
+            var user = _db.Users.FirstOrDefault(c => c.Id == id);
             if(user==null)
             {
                 return NotFound();
@@ -140,7 +140,7 @@ namespace OnlineShop.Areas.Customer.Controllers
         [HttpPost]
         public async Task<IActionResult> Active(ApplicationUser user)
         {
-            var userInfo = _db.ApplicationUsers.FirstOrDefault(c => c.Id == user.Id);
+            var userInfo = _db.Users.FirstOrDefault(c => c.Id == user.Id);
             if (userInfo == null)
             {
                 return NotFound();
@@ -158,7 +158,7 @@ namespace OnlineShop.Areas.Customer.Controllers
 
         public async Task<IActionResult> Delete(string id)
         {
-            var user = _db.ApplicationUsers.FirstOrDefault(c => c.Id == id);
+            var user = _db.Users.FirstOrDefault(c => c.Id == id);
             if (user == null)
             {
                 return NotFound();
@@ -169,13 +169,13 @@ namespace OnlineShop.Areas.Customer.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(ApplicationUser user)
         {
-            var userInfo = _db.ApplicationUsers.FirstOrDefault(c => c.Id == user.Id);
+            var userInfo = _db.Users.FirstOrDefault(c => c.Id == user.Id);
             if (userInfo == null)
             {
                 return NotFound();
 
             }
-            _db.ApplicationUsers.Remove(userInfo);
+            _db.Users.Remove(userInfo);
             int rowAffected = _db.SaveChanges();
             if (rowAffected > 0)
             {
